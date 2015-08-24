@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="51dp"
+              android:background="@drawable/romanblack_audio_listitem_in_set_drawable"
+              android:paddingTop="10dp"
+              android:paddingBottom="11dp"
+              android:paddingRight="10dp"
+              android:paddingLeft="22dp">
+            
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical">
+        
+        <FrameLayout android:layout_height="30dp"
+                     android:layout_width="30dp">
+            
+            <ImageView android:id="@+id/romanblack_audio_listview_item_thumb"
+                       android:layout_height="30dp"                 
+                       android:layout_width="30dp"/>
+            
+            <ProgressBar android:id="@+id/romanblack_audio_listview_item_progress"
+                         android:indeterminate="true"
+                         android:layout_width="fill_parent"
+                         android:layout_height="fill_parent"
+                         android:layout_margin="5dp"
+                         android:visibility="gone"
+                         style="?android:attr/progressBarStyleSmall"/>
+            
+        </FrameLayout>
+                
+        <LinearLayout android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:layout_weight="1"
+                      android:orientation="vertical"
+                      android:paddingLeft="10dp"
+                      android:paddingRight="0dp"
+                      android:gravity="center_vertical">
+            
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_height="wrap_content"
+                          android:layout_width="fill_parent"
+                          android:layout_weight="1"
+                          android:gravity="center_vertical">
+                    
+                <TextView android:id="@+id/romanblack_audio_listview_item_title"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:layout_weight="1"
+                          android:singleLine="true"
+                          android:textColor="#66000000"
+                          android:textStyle="bold"
+                          android:textSize="15dp"/>
+                
+                <LinearLayout android:id="@+id/romanblack_audio_listview_item_comments_count_layput"
+                              android:layout_height="27dp"
+                              android:layout_width="26dp"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:background="@drawable/romanblack_audio_comments_counter"
+                              android:layout_marginLeft="10dp"
+                              android:paddingBottom="5dp">
+                    
+                    <TextView android:id="@+id/romanblack_audio_listview_item_comments_count"
+                              android:layout_height="wrap_content"
+                              android:layout_width="wrap_content"
+                              android:textColor="#ffffff"
+                              android:text="+"
+                              android:textSize="12dp"/>
+            
+                </LinearLayout>
+            
+            </LinearLayout>
+        
+        </LinearLayout>
+            
+    </LinearLayout>
+    
+</LinearLayout>

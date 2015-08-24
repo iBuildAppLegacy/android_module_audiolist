@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:background="#4d000000">
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:paddingLeft="10dp"
+                  android:paddingTop="10dp"
+                  android:paddingRight="15dp"
+                  android:paddingBottom="0dp">
+
+        <FrameLayout android:layout_height="72dp"
+                     android:layout_width="72dp">
+
+            <ImageView android:id="@+id/romanblack_audio_preview_preview_img"
+                       android:layout_height="72dp"
+                       android:layout_width="72dp"
+                       android:padding="1dp"
+                       android:background="#ffffff"/>
+
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_height="fill_parent"
+                          android:layout_width="fill_parent"
+                          android:gravity="bottom|right">
+
+                <LinearLayout  android:orientation="horizontal"
+                               android:layout_height="36dp"
+                               android:layout_width="36dp"
+                               android:paddingRight="1dp"
+                               android:paddingBottom="1dp">
+
+                    <TextView android:id="@+id/romanblack_audio_preview_tracks_count"
+                              android:layout_height="fill_parent"
+                              android:layout_width="fill_parent"
+                              android:text="0"
+                              android:gravity="center"
+                              android:textColor="#ffffff"
+                              android:textSize="13dp"
+                              android:background="#66000000"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout android:orientation="vertical"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:layout_weight="1"
+                      android:paddingLeft="10dp">
+
+            <TextView android:id="@+id/romanblack_audio_preview_video_title"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:textColor="#ffffff"
+                      android:textStyle="bold"
+                      android:textSize="17dp"
+                      android:singleLine="true"
+                      android:layout_marginBottom="8dp"/>
+
+            <TextView android:id="@+id/romanblack_audio_preview_video_description"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:textColor="#ffffff"
+                      android:textSize="17dp"/>
+
+        </LinearLayout> 
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingTop="8dp"
+                  android:paddingLeft="10dp"
+                  android:paddingBottom="8dp"
+                  android:gravity="center_vertical">
+
+        <ImageView android:id="@+id/romanblack_audio_preview_prev_track"
+                   android:layout_height="35dp"
+                   android:layout_width="35dp"
+                   android:src="@drawable/romanblack_audio_prev_track"
+                   android:layout_marginRight="20dp"/>
+
+        <FrameLayout android:layout_height="35dp"
+                     android:layout_width="35dp"
+                     android:layout_marginRight="20dp">
+        
+            <ImageView android:id="@+id/romanblack_audio_preview_play"
+                       android:layout_height="35dp"
+                       android:layout_width="35dp"
+                       android:src="@drawable/romanblack_audio_play"/>
+            
+            <ProgressBar android:id="@+id/romanblack_audio_preview_progress"
+                         android:layout_height="25dp"
+                         android:layout_width="25dp"
+                         android:layout_margin="5dp"
+                         android:visibility="gone"/>
+        
+        </FrameLayout>
+
+        <ImageView android:id="@+id/romanblack_audio_preview_next_track"
+                   android:layout_height="35dp"
+                   android:layout_width="35dp"
+                   android:src="@drawable/romanblack_audio_next_track"
+                   android:layout_marginRight="8dp"/>
+
+        <LinearLayout android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:layout_weight="1"
+                      android:orientation="vertical">
+
+            <TextView android:id="@+id/romanblack_audio_preview_track_in_set_name"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:textColor="#ffffff"
+                      android:textSize="15dp"/>
+
+            <TextView android:id="@+id/romanblack_audio_preview_track_in_set_duration"
+                      android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:textColor="#ffffff"
+                      android:text="00:00"
+                      android:textSize="15dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="8dp"
+                  android:background="#88000000">
+
+        <LinearLayout android:layout_height="fill_parent"
+                      android:layout_width="wrap_content"
+                      android:layout_weight="1"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical">
+            
+            <TextView android:layout_height="fill_parent"
+                      android:layout_width="wrap_content"
+                      android:text="@string/romanblack_audio_preview_comments"
+                      android:gravity="center"
+                      android:textStyle="bold"
+                      android:textSize="12dp"
+                      android:textColor="#ffffff"
+                      android:paddingLeft="5dp"
+                      android:paddingRight="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:orientation="horizontal"
+                      android:paddingTop="5dp"
+                      android:paddingBottom="5dp">
+
+            <LinearLayout android:layout_height="27dp"
+                          android:layout_width="wrap_content"
+                          android:minWidth="45dp"
+                          android:orientation="horizontal"
+                          android:paddingBottom="2dp"
+                          android:background="@drawable/romanblack_audio_likes_count_bg_r"
+                          android:gravity="center"
+                          android:paddingLeft="5dp"
+                          android:paddingRight="10dp">
+
+                <TextView android:id="@+id/romanblack_audio_preview_comments_header_likes_count"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:textColor="#ffffff"
+                          android:text="+"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/romanblack_audio_preview_comments_header_like_btn"
+                          android:layout_height="27dp"
+                          android:layout_width="73dp"
+                          android:orientation="horizontal"
+                          android:layout_marginLeft="2dp"
+                          android:paddingBottom="2dp"
+                          android:paddingLeft="5dp"
+                          android:background="@drawable/romanblack_audio_like_button"
+                          android:gravity="center_vertical">
+
+                <ImageView android:layout_height="20dp"
+                           android:layout_width="21dp"
+                           android:src="@drawable/romanblack_audio_hand"
+                           android:id="@+id/romanblack_audio_preview_comments_header_like_image"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="fill_parent"
+                          android:text="@string/romanblack_audio_list_like"
+                          android:textColor="#ffffff"
+                          android:gravity="center_vertical"
+                          android:textStyle="bold"
+                          android:layout_marginLeft="5dp"
+                          android:id="@+id/romanblack_audio_preview_comments_header_like_caption"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

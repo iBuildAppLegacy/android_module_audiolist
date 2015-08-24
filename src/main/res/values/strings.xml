@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MainActivity</string>
+    
+    <string name="common_home_upper">Home</string>
+    
+    <string name="romanblack_audio_preview_comments">Comments</string>
+    
+    <string name="romanblack_audio_main_capture">Audio</string>
+    <string name="romanblack_audio_preview_capture">Comments</string>
+    <string name="romanblack_audio_replies_capture">Replies</string>
+    
+    <string name="romanblack_audio_list_share">Share</string>
+    <string name="romanblack_audio_list_like">Like</string>
+    <string name="romanblack_audio_yes">Yes</string>
+    <string name="romanblack_audio_no">No</string>
+    <string name="romanblack_audio_or">or</string>
+    <string name="romanblack_audio_loading">Loading...</string>
+    <string name="romanblack_audio_email">Email</string>
+    <string name="romanblack_audio_password">Password</string>
+    <string name="romanblack_audio_first_name">First name</string>
+    <string name="romanblack_audio_last_name">Last name</string>
+    <string name="romanblack_audio_reply">Reply</string>
+    <string name="romanblack_audio_cancel">Cancel</string>
+    
+    <string name="romanblack_audio_date_just_now">Just now</string>
+    <string name="romanblack_audio_date_one_minute">1 minute ago</string>
+    <string name="romanblack_audio_date_minutes"> minutes ago</string>
+    <string name="romanblack_audio_date_one_hour">1 hour ago</string>
+    <string name="romanblack_audio_date_hours"> hours ago</string>
+    <string name="romanblack_audio_date_yesterday">Yesterday</string>
+    <string name="romanblack_audio_date_days"> days ago</string>
+    <string name="romanblack_audio_date_yesterday_at">Yesterday at</string>
+    <string name="romanblack_audio_date_at">at</string>
+    
+    <string name="romanblack_audio_login">Login</string>
+    <string name="romanblack_audio_sign_up">Create new account</string>
+    <string name="romanblack_audio_have_an_account">I have an account</string>
+    <string name="romanblack_audio_login_with_facebook">Login with Facebook</string>
+    <string name="romanblack_audio_login_with_twitter">Login with Twitter</string>
+    <string name="romanblack_audio_login_with_ibuildapp">Login with iBuildApp</string>
+    <string name="romanblack_audio_login_with_email">Login with Email</string>
+    <string name="romanblack_audio_emaillogin_use_email">Use your e-mail to login.</string>
+    <string name="romanblack_audio_emailsignup_terms">By clicking on checkbox you are indicating that you have read and agree to the Terms of Use.</string>
+
+    <string name="romanblack_audio_no_comments_yet">There are no comments yet.</string>
+    <string name="romanblack_audio_post_comment">Post your comment!</string>
+    
+    <string name="romanblack_audio_alert_cannot_init">Cannot initialize audio plugin.</string>
+    <string name="romanblack_audio_alert_share_need_internet">You need an Internet connection to share data.</string>
+    <string name="romanblack_audio_alert_like_need_internet">You need an Internet connection to make a like.</string>
+    <string name="romanblack_audio_alert_no_internet">Cellular Data is Turned off. Turn on cellular data or use Wi-Fi to access data</string>
+    <string name="romanblack_audio_alert_link_not_valid">This Video Link Is Not Valid.</string>
+    <string name="romanblack_audio_alert_cannot_open_stream">Cannot open media stream.</string>
+    <string name="romanblack_audio_alert_facebook_authorization_failed">Facebook authorization failed.</string>
+    <string name="romanblack_audio_alert_twitter_authorization_failed">Twitter authorization failed.</string>
+    <string name="romanblack_audio_alert_email_authorization_failed">Email authorization failed.</string>
+    <string name="romanblack_audio_alert_fill_all_fields">Fill in all the fields</string>
+    <string name="romanblack_audio_alert_names_match_each">First and Last name match each other. This seems like a spam, please change Last or First name.</string>
+    <string name="romanblack_audio_alert_short_name">Your name should have at least 2 characters.</string>
+    <string name="romanblack_audio_alert_incorrect_email">Please enter correct email address.</string>
+    <string name="romanblack_audio_alert_passwords_dont_match">Passwords don\'t match.</string>
+    <string name="romanblack_audio_alert_empty_message">Cannot send empty comment</string>
+    <string name="romanblack_audio_alert_big_text"><![CDATA[Text lenght must be < 150 characters]]></string>
+    <string name="romanblack_audio_alert_sending_failed">Sending failed. Please try again</string>
+    
+    <string name="romanblack_audio_dialog_play_in_background">Do you wish to play music in background?</string>
+    <string name="romanblack_audio_dialog_must_be_logged_in">You must be logged in</string>
+    
+    <string name="romanblack_audio_signup_email_in_use">This email is in use. Please use another email.</string>
+    <string name="romanblack_audio_signup_failed">The username and password did not match our records, please try again</string>
+    
+    <string name="romanblack_audio_sharing_first_part">just commented on</string>
+    <string name="romanblack_audio_sharing_second_part">audio via</string>
+    <string name="romanblack_audio_sharing_third_part">download the iPhone/Android</string>
+    <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="back">Back</string>
+    <string name="post">Post</string>
+    <string name="clear">Clear</string>
+    <string name="signup">Sign up</string>
+    <string name="audio_ok">OK</string>
+
+    <plurals name="numberOfMinutes">
+        <item quantity="zero">%d minute ago</item>
+        <item quantity="one">%d minute ago</item>
+        <item quantity="many">%d minutes ago</item>
+        <item quantity="other">%d minutes ago</item>
+        <item quantity="few">%d minutes ago</item>
+    </plurals>
+
+    <plurals name="numberOfHours">
+        <item quantity="zero">%d hour ago</item>
+        <item quantity="one">%d hour ago</item>
+        <item quantity="many">%d hours ago</item>
+        <item quantity="other">%d hours ago</item>
+        <item quantity="few">%d hours ago</item>
+    </plurals>
+
+    <plurals name="numberOfDays">
+        <item quantity="zero">%d day ago</item>
+        <item quantity="one">%d day ago</item>
+        <item quantity="many">%d days ago</item>
+        <item quantity="other">%d days ago</item>
+        <item quantity="few">%d days ago</item>
+    </plurals>
+
+    <string name="vitamio_library_app_name">VitamioLibrary</string>
+    <string name="vitamio_init_decoders">Initializing decoders…</string>
+    <string name="permission_group_tools_label">Vitamio tools</string>
+    <string name="permission_group_tools_description">Access Vitamio package and resources.</string>
+    <string name="permission_receive_messages_label">Receive Vitamio messages</string>
+    <string name="permission_receive_messages_description">Receive all broadcasts from Vitamio service.</string>
+    <string name="permission_write_providers_label">Write Vitamio providers</string>
+    <string name="permission_write_providers_description">Delete, update or create new items in Vitamio providers.
+    </string>
+    <string name="VideoView_error_title">Cannot play video</string>
+    <string name="VideoView_error_text_invalid_progressive_playback">Sorry, this video is not valid for streaming to
+        this device.
+    </string>
+    <string name="VideoView_error_text_unknown">Sorry, this video cannot be played.</string>
+    <string name="VideoView_error_button">OK</string>
+    <string name="mediacontroller_play_pause">Play/Pause</string>
+
+    <string name="romanblack_audio_write_a_comment">Write a comment...</string>
+
+    <string name="directoryplugin_twitter_posted_success">Shared on Twitter</string>
+    <string name="directoryplugin_facebook_posted_success">Shared on Facebook</string>
+    <string name="directoryplugin_twitter_posted_error">Hasn\'t been shared on Twitter</string>
+    <string name="directoryplugin_facebook_posted_error">Hasn\'t been shared on Facebook</string>
+
+</resources>

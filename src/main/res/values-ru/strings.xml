@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_home_upper">Домой</string>
+    
+    <string name="romanblack_audio_preview_comments">Комментарии</string>
+
+    <string name="romanblack_audio_main_capture">Аудио</string>
+    <string name="romanblack_audio_preview_capture">Комментарии</string>
+    <string name="romanblack_audio_replies_capture">Ответы</string>
+
+    <string name="romanblack_audio_list_share">Поделиться</string>
+    <string name="romanblack_audio_list_like">Like</string>
+    <string name="romanblack_audio_yes">Да</string>
+    <string name="romanblack_audio_no">Нет</string>
+    <string name="romanblack_audio_or">или</string>
+    <string name="romanblack_audio_loading">Загрузка...</string>
+    <string name="romanblack_audio_email">Email</string>
+    <string name="romanblack_audio_password">Пароль</string>
+    <string name="romanblack_audio_first_name">Имя</string>
+    <string name="romanblack_audio_last_name">Фамилия</string>
+    <string name="romanblack_audio_reply">Ответить</string>
+    <string name="romanblack_audio_cancel">Отмена</string>
+
+    <string name="romanblack_audio_date_just_now">Сейчас</string>
+    <string name="romanblack_audio_date_one_minute">1 минуту назад</string>
+    <string name="romanblack_audio_date_minutes">минут назад</string>
+    <string name="romanblack_audio_date_one_hour">1 час назад</string>
+    <string name="romanblack_audio_date_hours">часов назад</string>
+    <string name="romanblack_audio_date_yesterday">Вчера</string>
+    <string name="romanblack_audio_date_days">дней назад</string>
+    <string name="romanblack_audio_date_yesterday_at">Вчера в</string>
+    <string name="romanblack_audio_date_at">в</string>
+
+    <string name="romanblack_audio_login">Войти</string>
+    <string name="romanblack_audio_sign_up">Создать новый аккаунт</string>
+    <string name="romanblack_audio_have_an_account">У меня уже есть аккаунт</string>
+    <string name="romanblack_audio_login_with_facebook">Войти через Facebook</string>
+    <string name="romanblack_audio_login_with_twitter">Войти через Twitter</string>
+    <string name="romanblack_audio_login_with_ibuildapp">Войти через iBuildApp</string>
+    <string name="romanblack_audio_login_with_email">Войти с помощью Email</string>
+    <string name="romanblack_audio_emaillogin_use_email">Используйте свой e-mail для входа</string>
+    <string name="romanblack_audio_emailsignup_terms">Устанавливая данный флаг вы соглашаетесь с лицензионным
+        соглашением
+    </string>
+
+    <string name="romanblack_audio_no_comments_yet">Комментарии отсутствуют</string>
+    <string name="romanblack_audio_post_comment">Отправить комментарий!</string>
+
+    <string name="romanblack_audio_alert_cannot_init">Невозможно инициализировать плагин</string>
+    <string name="romanblack_audio_alert_share_need_internet">Чтобы поделиться информацией нужно интернет подключение
+    </string>
+    <string name="romanblack_audio_alert_like_need_internet">Чтобы сделать like нужно интернет подключение</string>
+    <string name="romanblack_audio_alert_no_internet">Мобильный интернет отключен. Включите интернет, либо используйте
+        WiFi
+    </string>
+    <string name="romanblack_audio_alert_link_not_valid">Ссылка на видео не работает</string>
+    <string name="romanblack_audio_alert_cannot_open_stream">Невозможно открыть медиа поток</string>
+    <string name="romanblack_audio_alert_facebook_authorization_failed">Невозможно авторизоваться через Facebook
+    </string>
+    <string name="romanblack_audio_alert_twitter_authorization_failed">Невозможно авторизоваться через Twitter</string>
+    <string name="romanblack_audio_alert_email_authorization_failed">Невозможно авторизоваться с помощью Email</string>
+    <string name="romanblack_audio_alert_fill_all_fields">Заполните все поля</string>
+    <string name="romanblack_audio_alert_names_match_each">Имя и фамилия совпадают. Похоже на СПАМ, пожалуйста,
+        поменяйте имя либо фамилию
+    </string>
+    <string name="romanblack_audio_alert_short_name">Ваше имя должно содержать более двух букв.</string>
+    <string name="romanblack_audio_alert_incorrect_email">Введите корректный email</string>
+    <string name="romanblack_audio_alert_passwords_dont_match">Пароли не совпадают</string>
+    <string name="romanblack_audio_alert_empty_message">Невозможно отправить пустой комментарий</string>
+    <string name="romanblack_audio_alert_big_text"><![CDATA[Длина текста не должна превышать 150 символов]]></string>
+    <string name="romanblack_audio_alert_sending_failed">Отправка не удалась. Пожалуйста, попробуйте еще раз</string>
+
+    <string name="romanblack_audio_dialog_play_in_background">Проигрывать музыку в фоновом режиме?</string>
+    <string name="romanblack_audio_dialog_must_be_logged_in">Вы должны быть авторизованы</string>
+
+    <string name="romanblack_audio_signup_email_in_use">Данный email уже используется. Пожалуйста используйте другой
+    </string>
+    <string name="romanblack_audio_signup_failed">Имя пользователя и пароль не совпадают с нашими данными, попробуйте еще раз</string>
+
+    <string name="romanblack_audio_sharing_first_part">только что добавлен комментарий</string>
+    <string name="romanblack_audio_sharing_second_part">аудио через</string>
+    <string name="romanblack_audio_sharing_third_part">скачать iPhone/Android</string>
+    <string name="home">Домой</string>
+    <string name="back">Назад</string>
+    <string name="post">Отправить</string>
+    <string name="clear">Очистить</string>
+    <string name="signup">Зарегистрироваться</string>
+    <string name="audio_ok">OK</string>
+
+    <plurals name="numberOfMinutes">
+        <item quantity="zero">%d минут назад</item>
+        <item quantity="one">%d минуту назад</item>
+        <item quantity="many">%d минут назад</item>
+        <item quantity="other">%d минут назад</item>
+        <item quantity="few">%d минуты назад</item>
+    </plurals>
+
+    <plurals name="numberOfHours">
+        <item quantity="zero">%d часов назад</item>
+        <item quantity="one">%d час назад</item>
+        <item quantity="many">%d часов назад</item>
+        <item quantity="other">%d часов назад</item>
+        <item quantity="few">%d часа назад</item>
+    </plurals>
+
+    <plurals name="numberOfDays">
+        <item quantity="zero">%d дней назад</item>
+        <item quantity="one">%d день назад</item>
+        <item quantity="many">%d дней назад</item>
+        <item quantity="other">%d дней назад</item>
+        <item quantity="few">%d дня назад</item>
+    </plurals>
+    
+    <string name="romanblack_audio_write_a_comment">Комментировать...</string>
+
+    <string name="directoryplugin_twitter_posted_success">Добавлено на Twitter</string>
+    <string name="directoryplugin_twitter_posted_error">Не добавлено на Twitter</string>
+    <string name="directoryplugin_facebook_posted_success">Добавлено на Facebook</string>
+    <string name="directoryplugin_facebook_posted_error">Не добавлено на Facebook</string>
+
+</resources>

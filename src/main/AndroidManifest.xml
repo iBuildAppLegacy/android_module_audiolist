@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ibuildapp.romanblack.AudioPlugin">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application>
+        <activity android:name="AudioPlugin"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="AudioPreviewActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="AudioPlayerActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="CommentsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="CommentsToCommentActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="AuthorizationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="FacebookAuthorizationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="TwitterAuthorizationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="EMailAuthorizationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="EMailSignUpActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="SendMessageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="SharingActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- VITAMIO INIT ACTIVITY-->
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <receiver android:name="PushBroadcast">
+            <intent-filter>
+                <action android:name="com.ibuildapp.romanblack.AudioPlugin.PUSH"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="BackGroundMusicService">
+        </service>
+    </application>
+
+</manifest>

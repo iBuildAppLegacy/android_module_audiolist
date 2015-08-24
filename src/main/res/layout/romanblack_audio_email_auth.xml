@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal"
+              android:background="#f3f3f3">
+
+
+    <ScrollView android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_weight="1">
+
+        <LinearLayout android:layout_height="wrap_content"
+                      android:layout_width="fill_parent"
+                      android:orientation="vertical"
+                      android:paddingLeft="20dp"
+                      android:paddingRight="20dp"
+                      android:paddingBottom="0dp"
+                      android:paddingTop="0dp">
+
+            <EditText android:id="@+id/romanblack_audio_emailauth_fname"
+                      android:layout_width="fill_parent"
+                      android:layout_height="45dp"
+                      android:layout_marginTop="20dp"
+                      android:paddingLeft="5dp"
+                      android:textColorHint="#66000000"
+                      android:paddingRight="5dp"
+                      android:textSize="18dp"
+                      android:textColor="#66000000"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/sergeyb_audio_row_first_dark"
+                      android:hint="@string/romanblack_audio_login"/>
+
+            <EditText android:id="@+id/romanblack_audio_emailauth_lname"
+                      android:layout_width="fill_parent"
+                      android:layout_height="45dp"
+                      android:paddingLeft="5dp"
+                      android:paddingRight="5dp"
+                      android:textColorHint="#66000000"
+                      android:textSize="18dp"
+                      android:textColor="#66000000"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/sergeyb_audio_row_last_dark"
+                      android:inputType="textPassword"
+                      android:hint="@string/romanblack_audio_password"/>
+
+            <Button android:id="@+id/romanblack_audio_emailauth_btn_sugnup"
+                    android:layout_width="fill_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/romanblack_audio_green_btn_bg"
+                    android:text="@string/romanblack_audio_login"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp" android:singleLine="false"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

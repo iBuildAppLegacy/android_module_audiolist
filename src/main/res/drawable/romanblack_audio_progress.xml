@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" 
+            > 
+        <nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+                android:src="@drawable/romanblack_audio_progress_a"
+                android:dither="true"/>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+        <nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+                android:src="@drawable/romanblack_audio_progress_color"
+                android:dither="true"/>
+        </clip>
+        
+        <!--<clip android:drawable="@drawable/romanblack_soundcloud_progress_color" />-->
+    </item>
+</layer-list>

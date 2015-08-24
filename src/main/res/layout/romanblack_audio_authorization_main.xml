@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#ffffff">
+
+    <ScrollView android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_weight="1"
+                android:background="#f3f3f3"> 
+    
+        <LinearLayout android:layout_height="wrap_content"
+                      android:layout_width="fill_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:gravity="center_horizontal"
+                      android:paddingLeft="20dp"
+                      android:paddingRight="20dp">
+
+            <RelativeLayout android:id="@+id/romanblack_audio_login_facebookbtn"
+                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="10dp"
+                            android:background="@drawable/dnevolin_facebook_button_background"
+                            android:layout_marginTop="20dp">
+
+                <ImageView android:layout_height="35dp"
+                           android:layout_width="35dp"
+                           android:layout_centerVertical="true"
+                           android:src="@drawable/dnevolin_facebook_logo"/>
+
+                <TextView android:layout_height="45dp"
+                          android:layout_width="match_parent"
+                          android:text="@string/romanblack_audio_login_with_facebook"
+                          android:textSize="18sp"
+                          android:textStyle="bold"
+                          android:textColor="#ffffff"
+                          android:gravity="center_vertical"
+                          android:singleLine="true"
+                          android:paddingLeft="60dp"
+                          android:paddingRight="5dp"
+                          android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/romanblack_audio_login_twitterbtn"
+                            android:layout_height="55dp"
+                            android:layout_width="match_parent"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="10dp"
+                            android:background="@drawable/dnevolin_twitter_button_background"
+                            android:layout_marginTop="10dp">
+
+                <ImageView android:layout_height="35dp"
+                           android:layout_width="35dp"
+                           android:layout_centerVertical="true"
+                           android:src="@drawable/dnevolin_twitter_logo"/>
+
+                <TextView android:layout_height="45dp"
+                          android:layout_width="match_parent"
+                          android:text="@string/romanblack_audio_login_with_twitter"
+                          android:textSize="18sp"
+                          android:textStyle="bold"
+                          android:textColor="#ffffff"
+                          android:gravity="center_vertical"
+                          android:singleLine="true"
+                          android:paddingLeft="60dp"
+                          android:paddingRight="5dp"
+                          android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <TextView android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:layout_marginTop="15dp"
+                      android:layout_marginBottom="15dp"
+                      android:text="@string/romanblack_audio_or"
+                      android:lines="1"
+                      android:textColor="#66000000"
+                      android:textSize="15dp"
+                      android:background="@drawable/romanblack_audio_white_round"
+                      android:gravity="center"/>
+        
+            <EditText android:id="@+id/romanblack_audio_login_email"
+                      android:layout_height="45dp"
+                      android:layout_width="fill_parent"
+                      android:paddingLeft="5dp"
+                      android:paddingRight="5dp"
+                      android:textSize="18dp"
+                      android:textColorHint="#66000000"
+                      android:textColor="#999999"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/sergeyb_audio_row_first_dark"
+                      android:hint="@string/romanblack_audio_login"/>
+        
+            <EditText android:id="@+id/romanblack_audio_login_password"
+                      android:layout_height="45dp"
+                      android:layout_width="fill_parent"
+                      android:paddingLeft="5dp"
+                      android:paddingRight="5dp"
+                      android:textSize="18dp"
+                      android:textColor="#999999"
+                      android:textColorHint="#66000000"
+                      android:gravity="center_vertical"
+                      android:background="@drawable/sergeyb_audio_row_last_dark"
+                      android:inputType="textPassword"
+                      android:hint="@string/romanblack_audio_password"/>
+                
+            <TextView android:id="@+id/romanblack_audio_login_signuplabel"
+                      android:layout_height="55dp"
+                      android:layout_width="fill_parent"
+                      android:layout_marginTop="15dp"
+                      android:textSize="18dp"
+                      android:textStyle="bold"
+                      android:textColor="#444444"
+                      android:text="@string/romanblack_audio_sign_up"
+                      android:gravity="center"
+                      android:padding="1dp"
+                      android:background="@drawable/romanblack_audio_sign_up_btn_bg"/>  
+        
+            <LinearLayout android:id="@+id/romanblack_audio_login_emailbtn"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:orientation="horizontal"
+                          android:layout_marginTop="30dp">
+            
+                <TextView android:id="@+id/romanblack_audio_login_emailbtn_text"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:text="@string/romanblack_audio_have_an_account"
+                          android:textSize="14dp"
+                          android:textColor="#555555"/>
+             
+            </LinearLayout>     
+                
+        </LinearLayout>
+        
+    </ScrollView> 
+            
+</LinearLayout>
