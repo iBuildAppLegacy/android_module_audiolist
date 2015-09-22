@@ -108,7 +108,9 @@ public class SendMessageActivity extends AppBuilderModuleMain implements OnClick
         float density = getResources().getDisplayMetrics().density;
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams((int) (PROGRESS_SIZE * density), (int) (PROGRESS_SIZE * density));
         progressBar.setLayoutParams(params);
-        drawTopBarRightButton(progressBar);
+
+        if(!showSideBar)
+            drawTopBarRightButton(progressBar);
 
         setTopBarTitle(getResources().getString(R.string.romanblack_audio_preview_capture));
         swipeBlock();

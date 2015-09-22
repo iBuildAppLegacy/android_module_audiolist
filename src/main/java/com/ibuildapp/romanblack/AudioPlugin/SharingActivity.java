@@ -106,8 +106,8 @@ public class SharingActivity extends AppBuilderModuleMain implements OnClickList
         postImageView = (ImageView) getLayoutInflater().inflate(R.layout.romanblack_audio_post_btn, null);
         postImageView.setLayoutParams(new LinearLayout.LayoutParams((int) (20 * density), (int) (20 * density)));
         postImageView.setColorFilter(navBarDesign.itemDesign.textColor);
-        postImageView.setOnClickListener(this);
-        drawTopBarRightButton(postImageView);
+//        postImageView.setOnClickListener(this);
+        setTopBarRightButton(postImageView, getString(R.string.share_message), this);
 
         mainEditText = (EditText) findViewById(R.id.romanblack_audio_sharing_edittext);
 
