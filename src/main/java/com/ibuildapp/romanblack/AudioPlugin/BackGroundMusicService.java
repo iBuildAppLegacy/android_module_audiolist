@@ -444,9 +444,10 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
      * Marks all audios uplaying.
      */
     private void setUnplaying() {
-        for (int i = 0; i < items.size(); i++) {
-            items.get(i).setPlaying(false);
-        }
+        if(items != null)
+            for (int i = 0; i < items.size(); i++)
+                if(items.get(i) != null)
+                    items.get(i).setPlaying(false);
     }
 
     /**

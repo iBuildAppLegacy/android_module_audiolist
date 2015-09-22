@@ -302,9 +302,9 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
         shareButton = (ImageView) getLayoutInflater().inflate(R.layout.romanblack_audio_share_btn, null);
         shareButton.setLayoutParams(new LinearLayout.LayoutParams((int) (29 * density), (int) (39 * density)));
         shareButton.setColorFilter(navBarDesign.itemDesign.textColor);
-        shareButton.setOnClickListener(this);
-        //drawTopBarRightButton(shareButton);
-        setTopBarRightButton(shareButton, "share", this);
+//        shareButton.setOnClickListener(this);
+        setTopBarRightButton(shareButton, getString(R.string.romanblack_audio_list_share), this);
+
         Intent currentIntent = getIntent();
         items = (ArrayList<BasicItem>) currentIntent.getSerializableExtra("items");
 
