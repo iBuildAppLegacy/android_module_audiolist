@@ -303,7 +303,66 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
         shareButton.setLayoutParams(new LinearLayout.LayoutParams((int) (29 * density), (int) (39 * density)));
         shareButton.setColorFilter(navBarDesign.itemDesign.textColor);
 //        shareButton.setOnClickListener(this);
-        setTopBarRightButton(shareButton, getString(R.string.romanblack_audio_list_share), this);
+        setTopBarRightButton(shareButton, getString(R.string.romanblack_audio_list_share), new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                needMenu = true;
+
+                showDialogSharing(new DialogSharing.Configuration.Builder()
+                                .setFacebookSharingClickListener(new DialogSharing.Item.OnClickListener() {
+                                    @Override
+                                    public void onClick() {
+                                        if (Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK) != null) {
+                                            shareFacebook();
+                                        } else {
+                                            action = ACTIONS.FACEBOOK_SHARE;
+                                            Authorization.authorize(AudioPreviewActivity.this, FACEBOOK_AUTH, Authorization.AUTHORIZATION_TYPE_FACEBOOK);
+                                        }
+
+                                        needMenu = false;
+                                    }
+                                })
+                                .setTwitterSharingClickListener(new DialogSharing.Item.OnClickListener() {
+                                    @Override
+                                    public void onClick() {
+                                        if (Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER) != null) {
+                                            shareTwitter();
+                                        } else {
+                                            Authorization.authorize(AudioPreviewActivity.this, TWITTER_AUTH, Authorization.AUTHORIZATION_TYPE_TWITTER);
+                                        }
+
+                                        needMenu = false;
+                                    }
+                                })
+                                .setEmailSharingClickListener(new DialogSharing.Item.OnClickListener() {
+                                    @Override
+                                    public void onClick() {
+                                        String text = item.getUrl();
+
+                                        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                                        emailIntent.setType("text/html");
+                                        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(text));
+                                        startActivity(emailIntent);
+
+                                        needMenu = false;
+                                    }
+                                })
+                                .setSmsSharingClickListener(new DialogSharing.Item.OnClickListener() {
+                                    @Override
+                                    public void onClick() {
+                                        String text = item.getUrl();
+
+                                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"));
+                                        intent.putExtra("sms_body", text);
+                                        startActivity(intent);
+
+                                        needMenu = false;
+                                    }
+                                })
+                                .build()
+                );
+            }
+        });
 
         Intent currentIntent = getIntent();
         items = (ArrayList<BasicItem>) currentIntent.getSerializableExtra("items");
@@ -1321,64 +1380,6 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                 Toast.makeText(this, this.getResources().getString(R.string.romanblack_audio_alert_like_need_internet),
                         Toast.LENGTH_LONG).show();
             }
-        } else if (arg0 == shareButton) {
-            needMenu = true;
-
-            showDialogSharing(new DialogSharing.Configuration.Builder()
-                            .setFacebookSharingClickListener(new DialogSharing.Item.OnClickListener() {
-                                @Override
-                                public void onClick() {
-                                    if (Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK) != null) {
-                                        shareFacebook();
-                                    } else {
-                                        action = ACTIONS.FACEBOOK_SHARE;
-                                        Authorization.authorize(AudioPreviewActivity.this, FACEBOOK_AUTH, Authorization.AUTHORIZATION_TYPE_FACEBOOK);
-                                    }
-
-                                    needMenu = false;
-                                }
-                            })
-                            .setTwitterSharingClickListener(new DialogSharing.Item.OnClickListener() {
-                                @Override
-                                public void onClick() {
-                                    if (Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER) != null) {
-                                        shareTwitter();
-                                    } else {
-                                        Authorization.authorize(AudioPreviewActivity.this, TWITTER_AUTH, Authorization.AUTHORIZATION_TYPE_TWITTER);
-                                    }
-
-                                    needMenu = false;
-                                }
-                            })
-                            .setEmailSharingClickListener(new DialogSharing.Item.OnClickListener() {
-                                @Override
-                                public void onClick() {
-                                    String text = item.getUrl();
-
-                                    Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                                    emailIntent.setType("text/html");
-                                    emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(text));
-                                    startActivity(emailIntent);
-
-                                    needMenu = false;
-                                }
-                            })
-                            .setSmsSharingClickListener(new DialogSharing.Item.OnClickListener() {
-                                @Override
-                                public void onClick() {
-                                    String text = item.getUrl();
-
-                                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"));
-                                    intent.putExtra("sms_body", text);
-                                    startActivity(intent);
-
-                                    needMenu = false;
-                                }
-                            })
-                            .build()
-            );
-
-//            openOptionsMenu();
         } else if (arg0 == postCommentButton) {
             if (commentEditText.getText().length() < 1) {
                 Toast.makeText(this, R.string.romanblack_audio_alert_empty_message,
