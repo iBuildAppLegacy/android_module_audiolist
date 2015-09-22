@@ -303,8 +303,8 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
         shareButton.setLayoutParams(new LinearLayout.LayoutParams((int) (29 * density), (int) (39 * density)));
         shareButton.setColorFilter(navBarDesign.itemDesign.textColor);
         shareButton.setOnClickListener(this);
-        drawTopBarRightButton(shareButton);
-
+        //drawTopBarRightButton(shareButton);
+        setTopBarRightButton(shareButton, "share", this);
         Intent currentIntent = getIntent();
         items = (ArrayList<BasicItem>) currentIntent.getSerializableExtra("items");
 
