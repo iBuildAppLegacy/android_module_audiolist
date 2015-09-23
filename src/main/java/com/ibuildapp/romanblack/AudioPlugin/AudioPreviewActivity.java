@@ -1043,20 +1043,21 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
      * Shows auth dialog if user is not authorized in Facebook.
      */
     private void showLikeAuthDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.romanblack_audio_dialog_must_be_logged_in));
-        builder.setPositiveButton(getString(R.string.romanblack_audio_yes),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        handler.sendEmptyMessage(AUTH_FOR_LIKE);
-                    }
-                });
-        builder.setNegativeButton(getString(R.string.romanblack_audio_cancel),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                });
-        builder.create().show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle(getString(R.string.romanblack_audio_dialog_must_be_logged_in));
+//        builder.setPositiveButton(getString(R.string.romanblack_audio_yes),
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                        handler.sendEmptyMessage(AUTH_FOR_LIKE);
+//                    }
+//                });
+//        builder.setNegativeButton(getString(R.string.romanblack_audio_cancel),
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                    }
+//                });
+//        builder.create().show();
+        handler.sendEmptyMessage(AUTH_FOR_LIKE);
     }
 
     /**
