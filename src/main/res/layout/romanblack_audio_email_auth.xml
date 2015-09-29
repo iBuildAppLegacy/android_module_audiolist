@@ -30,6 +30,8 @@
                       android:textColor="#66000000"
                       android:gravity="center_vertical"
                       android:background="@drawable/sergeyb_audio_row_first_dark"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:hint="@string/romanblack_audio_login"/>
 
             <EditText android:id="@+id/romanblack_audio_emailauth_lname"

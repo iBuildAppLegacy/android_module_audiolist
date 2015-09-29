@@ -21,16 +21,22 @@
                       android:layout_width="fill_parent"
                       android:layout_height="55dp"
                       android:textColor="#66000000"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:layout_marginTop="30dp"/>
 
             <EditText android:id="@+id/romanblack_audio_emailsignup_lname"
                       android:layout_width="fill_parent"
                       android:textColor="#66000000"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:layout_height="55dp"/>
 
             <EditText android:id="@+id/romanblack_audio_emailsignup_email"
                       android:layout_width="fill_parent"
                       android:textColor="#66000000"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:layout_height="55dp"/>
 
             <EditText android:id="@+id/romanblack_audio_emailsignup_pwd"
@@ -38,12 +44,16 @@
                       android:layout_height="55dp"
                       android:layout_marginTop="25dp"
                       android:textColor="#66000000"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:password="true"/>
 
             <EditText android:id="@+id/romanblack_audio_emailsignup_rpwd"
                       android:layout_width="fill_parent"
                       android:layout_height="55dp"
                       android:textColor="#66000000"
+                      android:lines="1"
+                      android:singleLine="true"
                       android:password="true"/>
 
             <LinearLayout android:id="@+id/romanblack_audio_emailsignup_layouttems"
