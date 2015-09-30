@@ -560,7 +560,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
     @Override
     public void onBufferingUpdate(MediaPlayer mp, int progress) {
         //-1638400000
-        if((progress < Integer.MIN_VALUE / 2  || progress > 50) && isPrepared && !buffered && playerState == MediaPlayerStates.PLAYER_INIT) {
+        if((progress < Integer.MIN_VALUE / 2 || progress > 50 || progress == 0) && isPrepared && !buffered && playerState == MediaPlayerStates.PLAYER_INIT) {
             buffered = true;
             playerPlay();
             playerState = MediaPlayerStates.PLAYER_PLAY;
