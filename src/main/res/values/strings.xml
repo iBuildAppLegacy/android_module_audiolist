@@ -128,5 +128,6 @@
     <string name="directoryplugin_facebook_posted_success">Shared on Facebook</string>
     <string name="directoryplugin_twitter_posted_error">Hasn\'t been shared on Twitter</string>
     <string name="directoryplugin_facebook_posted_error">Hasn\'t been shared on Facebook</string>
+    <string name="send">Send</string>
 
 </resources>

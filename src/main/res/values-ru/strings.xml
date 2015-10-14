@@ -117,5 +117,6 @@
     <string name="directoryplugin_twitter_posted_error">Не добавлено на Twitter</string>
     <string name="directoryplugin_facebook_posted_success">Добавлено на Facebook</string>
     <string name="directoryplugin_facebook_posted_error">Не добавлено на Facebook</string>
+    <string name="send">Отправить</string>
 
 </resources>
