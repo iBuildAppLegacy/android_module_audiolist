@@ -519,11 +519,11 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
         
         if(startPosition != POSITION_UNDEFINED && endPosition != POSITION_UNDEFINED){
             isPrepared = true;
-//            playerPlay();
-//            playerState = MediaPlayerStates.PLAYER_PLAY;
-//            setPlaying(position);
-//            Statics.musicStarted();
-//            setPlaying(position);
+            playerPlay();
+            playerState = MediaPlayerStates.PLAYER_PLAY;
+            setPlaying(position);
+            Statics.musicStarted();
+            setPlaying(position);
         }
     }
 
