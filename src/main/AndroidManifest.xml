@@ -37,12 +37,12 @@
             android:screenOrientation="portrait"/>
 
         <!-- VITAMIO INIT ACTIVITY-->
-        <activity
+       <!-- <activity
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden"/>-->
 
         <receiver android:name="PushBroadcast">
             <intent-filter>

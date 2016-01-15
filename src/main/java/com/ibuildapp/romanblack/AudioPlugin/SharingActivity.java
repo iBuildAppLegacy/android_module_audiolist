@@ -42,7 +42,7 @@ import twitter4j.auth.AccessToken;
 /**
  * This activity provides share on Facebook or Twitter functionality.
  */
-public class SharingActivity extends AppBuilderModuleMain implements OnClickListener {
+public class SharingActivity extends AppBuilderModuleMain {
 
     private final int NEED_INTERNET_CONNECTION = 0;
     private final int INITIALIZATION_FAILED = 1;
@@ -106,8 +106,96 @@ public class SharingActivity extends AppBuilderModuleMain implements OnClickList
         postImageView = (ImageView) getLayoutInflater().inflate(R.layout.romanblack_audio_post_btn, null);
         postImageView.setLayoutParams(new LinearLayout.LayoutParams((int) (20 * density), (int) (20 * density)));
         postImageView.setColorFilter(navBarDesign.itemDesign.textColor);
-        postImageView.setOnClickListener(this);
-        drawTopBarRightButton(postImageView);
+//        postImageView.setOnClickListener(this);
+        setTopBarRightButton(postImageView, getString(R.string.send), new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postImageView.setClickable(false);
+
+                text = mainEditText.getText().toString();
+
+                if ( !Utils.networkAvailable(SharingActivity.this) ){
+                    handler.sendEmptyMessage(NEED_INTERNET_CONNECTION);
+                    return;
+                }
+
+                if (sharingType.equalsIgnoreCase("facebook")) {
+                    final FacebookClient fbClient = new DefaultFacebookClient(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getAccessToken());
+
+                    handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
+
+                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getUserName() + " "
+                            + getString(R.string.romanblack_audio_sharing_first_part) + " "
+                            + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
+                            + Statics.APP_NAME
+                            + " app:\n\"" + mainEditText.getText() + "\"\n";
+
+                    if (com.appbuilder.sdk.android.Statics.showLink) {
+                        text = text + getString(R.string.romanblack_audio_sharing_third_part)
+                                + " app: http://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN
+                                + "/projects.php?action=info&projectid="
+                                + Statics.APP_ID;
+                    }
+
+                    new Thread(new Runnable() {
+                        public void run() {
+                            try {
+                                boolean res = FacebookAuthorizationActivity.sharing(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getAccessToken(), text, null);
+                                if ( res )
+                                {
+                                    setResult(RESULT_OK);
+                                }
+                            } catch (FacebookAuthorizationActivity.FacebookNotAuthorizedException e) {
+                            }
+                            handler.sendEmptyMessage(HIDE_PROGRESS_DIALOG);
+                        }
+                    }).start();
+
+                } else if (sharingType.equalsIgnoreCase("twitter")) {
+                    handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
+
+                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getUserName() + " "
+                            + getString(R.string.romanblack_audio_sharing_first_part) + " "
+                            + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
+                            + Statics.APP_NAME
+                            + " app:\n\"" + mainEditText.getText() + "\"\n";
+
+                    if (com.appbuilder.sdk.android.Statics.showLink) {
+                        text = text + getString(R.string.romanblack_audio_sharing_third_part)
+                                + " app: http://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN
+                                + "/projects.php?action=info&projectid="
+                                + Statics.APP_ID;
+                    }
+
+                    new Thread(new Runnable() {
+                        public void run() {
+                            try {
+                                twitter = new TwitterFactory().getInstance();
+                                twitter.setOAuthConsumer(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getConsumerKey(),
+                                        Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getConsumerSecret());
+                                twitter.setOAuthAccessToken(new AccessToken(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessToken(),
+                                        Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessTokenSecret()));
+
+                                Log.d("ROMAN", Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessToken() + " " + Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessTokenSecret());
+                                Log.d("ROMAN", com.appbuilder.sdk.android.Statics.TWITTER_CONSUMER_KEY + " " + com.appbuilder.sdk.android.Statics.TWITTER_CONSUMER_SECRET);
+
+                                if (text.length() > 140) {
+                                    text = text.substring(0, 139);
+                                }
+
+                                twitter.updateStatus(text);
+
+                                setResult(RESULT_OK);
+                            } catch (TwitterException tEx) {
+                                Log.d("ROMAN", "", tEx);
+                            }
+
+                            handler.sendEmptyMessage(HIDE_PROGRESS_DIALOG);
+                        }
+                    }).start();
+                }
+            }
+        });
 
         mainEditText = (EditText) findViewById(R.id.romanblack_audio_sharing_edittext);
 
@@ -139,92 +227,4 @@ public class SharingActivity extends AppBuilderModuleMain implements OnClickList
         finish();
     }
 
-    public void onClick(View arg0) {
-        if (arg0 == postImageView) {
-            postImageView.setClickable(false);
-
-            text = mainEditText.getText().toString();
-
-            if ( !Utils.networkAvailable(SharingActivity.this) ){
-                handler.sendEmptyMessage(NEED_INTERNET_CONNECTION);
-                return;
-            }
-
-            if (sharingType.equalsIgnoreCase("facebook")) {
-                final FacebookClient fbClient = new DefaultFacebookClient(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getAccessToken());
-
-                handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
-
-                text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getUserName() + " "
-                        + getString(R.string.romanblack_audio_sharing_first_part) + " "
-                        + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
-                        + Statics.APP_NAME
-                        + " app:\n\"" + mainEditText.getText() + "\"\n";
-
-                if (com.appbuilder.sdk.android.Statics.showLink) {
-                    text = text + getString(R.string.romanblack_audio_sharing_third_part)
-                            + " app: http://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN
-                            + "/projects.php?action=info&projectid="
-                            + Statics.APP_ID;
-                }
-
-                new Thread(new Runnable() {
-                    public void run() {
-                        try {
-                            boolean res = FacebookAuthorizationActivity.sharing(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getAccessToken(), text, null);
-                            if ( res )
-                            {
-                                setResult(RESULT_OK);
-                            }
-                        } catch (FacebookAuthorizationActivity.FacebookNotAuthorizedException e) {
-                        }
-                        handler.sendEmptyMessage(HIDE_PROGRESS_DIALOG);
-                    }
-                }).start();
-
-            } else if (sharingType.equalsIgnoreCase("twitter")) {
-                handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
-
-                text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getUserName() + " "
-                        + getString(R.string.romanblack_audio_sharing_first_part) + " "
-                        + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
-                        + Statics.APP_NAME
-                        + " app:\n\"" + mainEditText.getText() + "\"\n";
-
-                if (com.appbuilder.sdk.android.Statics.showLink) {
-                    text = text + getString(R.string.romanblack_audio_sharing_third_part)
-                            + " app: http://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN
-                            + "/projects.php?action=info&projectid="
-                            + Statics.APP_ID;
-                }
-
-                new Thread(new Runnable() {
-                    public void run() {
-                        try {
-                            twitter = new TwitterFactory().getInstance();
-                            twitter.setOAuthConsumer(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getConsumerKey(),
-                                Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getConsumerSecret());
-                            twitter.setOAuthAccessToken(new AccessToken(Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessToken(),
-                                    Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessTokenSecret()));
-
-                            Log.d("ROMAN", Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessToken() + " " + Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getAccessTokenSecret());
-                            Log.d("ROMAN", com.appbuilder.sdk.android.Statics.TWITTER_CONSUMER_KEY + " " + com.appbuilder.sdk.android.Statics.TWITTER_CONSUMER_SECRET);
-
-                            if (text.length() > 140) {
-                                text = text.substring(0, 139);
-                            }
-
-                            twitter.updateStatus(text);
-
-                            setResult(RESULT_OK);
-                        } catch (TwitterException tEx) {
-                            Log.d("ROMAN", "", tEx);
-                        }
-
-                        handler.sendEmptyMessage(HIDE_PROGRESS_DIALOG);
-                    }
-                }).start();
-            }
-        }
-    }
 }

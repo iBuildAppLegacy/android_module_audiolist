@@ -1,13 +1,13 @@
 /****************************************************************************
-*                                                                           *
-*  Copyright (C) 2014-2015 iBuildApp, Inc. ( http://ibuildapp.com )         *
-*                                                                           *
-*  This file is part of iBuildApp.                                          *
-*                                                                           *
-*  This Source Code Form is subject to the terms of the iBuildApp License.  *
-*  You can obtain one at http://ibuildapp.com/license/                      *
-*                                                                           *
-****************************************************************************/
+ *                                                                           *
+ *  Copyright (C) 2014-2015 iBuildApp, Inc. ( http://ibuildapp.com )         *
+ *                                                                           *
+ *  This file is part of iBuildApp.                                          *
+ *                                                                           *
+ *  This Source Code Form is subject to the terms of the iBuildApp License.  *
+ *  You can obtain one at http://ibuildapp.com/license/                      *
+ *                                                                           *
+ ****************************************************************************/
 package com.ibuildapp.romanblack.AudioPlugin;
 
 import android.app.ProgressDialog;
@@ -206,7 +206,7 @@ public class AudioPlugin extends AppBuilderModuleMain implements
 
             Statics.serviceManageInterface.removeNotification();
             ArrayList<AudioItem> tmpItems = resolver.getAudioItems();
-            
+
             if(Statics.closedOrder != widget.getOrder()){
                 Statics.serviceManageInterface.setItems(tmpItems);
                 Statics.serviceManageInterface.setPositionsInterval(
@@ -236,7 +236,7 @@ public class AudioPlugin extends AppBuilderModuleMain implements
                 Statics.serviceManageInterface.stop();
             } else if (Statics.serviceManageInterface.getState() == BackGroundMusicService.MediaPlayerStates.PLAYER_STOP) {
             }
-            
+
             Statics.closedOrder = widget.getOrder();
         }
 
@@ -276,15 +276,12 @@ public class AudioPlugin extends AppBuilderModuleMain implements
         rootLayout = (LinearLayout) findViewById(R.id.romanblack_audio_main_root);
 
         // topbar initialization
-        boolean showSideBar = ((Boolean) getIntent().getExtras().getSerializable("showSideBar")).booleanValue();
-        if (!showSideBar) {
-            setTopBarLeftButtonText(getResources().getString(R.string.common_home_upper), true, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onBackPressed();
-                }
-            });
-        }
+        setTopBarLeftButtonText(getResources().getString(R.string.common_home_upper), true, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         listView = (ExpandableListView) findViewById(R.id.romanblack_audio_main_listview);
         listView.setGroupIndicator(null);
@@ -370,8 +367,8 @@ public class AudioPlugin extends AppBuilderModuleMain implements
     @Override
     public void destroy() {
         destroyed = true;
-        
-        if(Statics.serviceManageInterface.getState() == 
+
+        if(Statics.serviceManageInterface.getState() ==
                 BackGroundMusicService.MediaPlayerStates.PLAYER_PLAY){
             Statics.closedOrder = widget.getOrder();
         }else{

@@ -75,6 +75,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
     private MediaPlayer mediaPlayer = new MediaPlayer();
     private MultiPlayer multiPlayer = new MultiPlayer();
     private StreamProxy proxy = null;
+    private volatile boolean isAwait = false;
     private TelephonyManager telephonyManager = null;
     private ArrayList<AudioItem> items = null;
     private Handler handler = new Handler() {
@@ -137,6 +138,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
             super.handleMessage(msg);
         }
     };
+    private MediaPlayer mediaPlayer1;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -354,15 +356,30 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
                 return;
             }
 
+            if (mediaPlayer1!= null){
+                mediaPlayer1.stop();
+                mediaPlayer1.release();
+                mediaPlayer1 = null;
+            }
+            if (proxy != null){
+                proxy.stop();
+            }
+
             proxy = new StreamProxy();
             proxy.init(handler);
             proxy.start();
             String proxyUrl = String.format("http://127.0.0.1:%d/%s", proxy.getPort(), items.get(position).getUrl());
-            final MediaPlayer mediaPlayer1 = new MediaPlayer();
+            mediaPlayer1 = new MediaPlayer();
+            isAwait = false;
             mediaPlayer1.setOnPreparedListener(new OnPreparedListener() {
                 public void onPrepared(MediaPlayer arg0) {
                     proxy.stop();
+                    if (mediaPlayer != null) {
+                        mediaPlayer.stop();
+                        mediaPlayer.release();
+                    }
                     mediaPlayer1.release();
+                    mediaPlayer1.start();
                 }
             });
 
@@ -371,7 +388,6 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
             mediaPlayer1.setDataSource(proxyUrl);
             mediaPlayer1.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mediaPlayer1.prepareAsync();
-            mediaPlayer1.start();
             // попробуем заблочить этот тред чтобы успел отработать другой
             // во избежании ошибки HeapWorker
             if (android.os.Build.VERSION.SDK_INT <= 10) {
@@ -425,6 +441,14 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
      * Starts mp3 audio player.
      */
     private void playMp3() {
+        if (isAwait = false) {
+            isAwait = true;
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         System.gc();
         mediaPlayer.start();
         playerState = MediaPlayerStates.PLAYER_PLAY;
@@ -444,9 +468,10 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
      * Marks all audios uplaying.
      */
     private void setUnplaying() {
-        for (int i = 0; i < items.size(); i++) {
-            items.get(i).setPlaying(false);
-        }
+        if(items != null)
+            for (int i = 0; i < items.size(); i++)
+                if(items.get(i) != null)
+                    items.get(i).setPlaying(false);
     }
 
     /**
@@ -518,11 +543,11 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
         
         if(startPosition != POSITION_UNDEFINED && endPosition != POSITION_UNDEFINED){
             isPrepared = true;
-//            playerPlay();
-//            playerState = MediaPlayerStates.PLAYER_PLAY;
-//            setPlaying(position);
-//            Statics.musicStarted();
-//            setPlaying(position);
+            playerPlay();
+            playerState = MediaPlayerStates.PLAYER_PLAY;
+            setPlaying(position);
+            Statics.musicStarted();
+            setPlaying(position);
         }
     }
 
