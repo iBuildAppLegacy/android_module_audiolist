@@ -444,7 +444,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
         if (isAwait = false) {
             isAwait = true;
             try {
-                Thread.sleep(150);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
