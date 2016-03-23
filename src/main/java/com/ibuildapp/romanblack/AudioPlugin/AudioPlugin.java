@@ -30,6 +30,7 @@ import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.*;
 import com.appbuilder.sdk.android.AppBuilderModuleMain;
 import com.appbuilder.sdk.android.DialogSharing;
+import com.appbuilder.sdk.android.StartUpActivity;
 import com.appbuilder.sdk.android.Utils;
 import com.appbuilder.sdk.android.Widget;
 import com.appbuilder.sdk.android.authorization.Authorization;
@@ -76,6 +77,7 @@ import java.util.concurrent.Executors;
  * Main module class. Module entry point.
  * Represents audio list, audio stream widgets.
  */
+@StartUpActivity(moduleName = "Audio")
 public class AudioPlugin extends AppBuilderModuleMain implements
         View.OnClickListener, AdapterView.OnItemClickListener,
         MediaExpandableAdapter.SharePressedListener, MediaExpandableAdapter.OnThumbClickListener,
