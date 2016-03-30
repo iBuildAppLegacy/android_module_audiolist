@@ -9,10 +9,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "armeabi", "mips"
-        }
     }
     buildTypes {
         release {
@@ -26,6 +22,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.ibuildapp:sdk:$iBuildAppSdkVersion"
+    compile project(':api')
     compile "com.seppius.plurals:android-i18n-plurals:$AndroidI18NPluralsVersion"
 }
