@@ -32,7 +32,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
-import com.flurry.android.FlurryAgent;
+//import com.flurry.android.FlurryAgent;
 import com.ibuildapp.romanblack.AudioPlugin.callback.ServiceManageInterface;
 import com.ibuildapp.romanblack.AudioPlugin.entities.AudioItem;
 import com.ibuildapp.romanblack.AudioPlugin.utils.SoundCloudLinkResolver;
@@ -408,7 +408,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
     private void stopMusic() {
         try {
             if (userID != null && userID.equals("186589")) {
-                FlurryAgent.endTimedEvent("AudioPlugin");
+                //FlurryAgent.endTimedEvent("AudioPlugin");
             }
         } catch (Exception e) {
             Log.e("STOP", "mediaPlayer release error");
@@ -692,7 +692,7 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
             if (userID != null && userID.equals("186589")) {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("Listen", items.get(position).getTitle());
-                FlurryAgent.logEvent("AudioPlugin", params, true);
+                //FlurryAgent.logEvent("AudioPlugin", params, true);
                 
             }
         } catch (Exception e) {
