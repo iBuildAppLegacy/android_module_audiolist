@@ -259,7 +259,7 @@ public class AudioPlugin extends AppBuilderModuleMain implements
         }
 
         if (widget.getPluginXmlData().length() == 0) {
-            if (currentIntent.getStringExtra("WidgetFile").length() == 0) {
+            if (widget.getPathToXmlFile().length() == 0) {
                 handler.sendEmptyMessageDelayed(INITIALIZATION_FAILED, 1000);
                 return;
             }
@@ -314,7 +314,7 @@ public class AudioPlugin extends AppBuilderModuleMain implements
                 if (widget.getPluginXmlData().length() > 0) {
                     parser = new EntityParser(widget.getPluginXmlData());
                 } else {
-                    String xmlData = readXmlFromFile(currentIntent.getStringExtra("WidgetFile"));
+                    String xmlData = readXmlFromFile(widget.getPathToXmlFile());
                     parser = new EntityParser(xmlData);
                 }
 
