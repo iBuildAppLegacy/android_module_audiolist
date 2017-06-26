@@ -143,6 +143,7 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
     private LinearLayout noCommentsLayout = null;
     private ArrayList<BasicItem> items = null;
     private ArrayList<CommentItem> comments = null;
+    private  String urlComment="";
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message message) {
@@ -493,7 +494,8 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                     isOnline = true;
 
                 if (isOnline) {
-                    String commentsUrl = Statics.BASE_URL + "/getcomments/"
+                    String url = "http://"+Statics.BASE_URL;
+                    String commentsUrl = url + "/getcomments/"
                             + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
                             + item.getId() + "/0/" 
                             + com.appbuilder.sdk.android.Statics.appId + "/" 
@@ -1097,11 +1099,20 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                     StringBuilder sb = new StringBuilder();
                     sb.append(Statics.BASE_URL);
                     sb.append("/");
-                    HttpPost httpPost = new HttpPost(sb.toString());
+                    urlComment = sb.toString();
+                    HttpPost httpPost;
+                    if (urlComment.contains("http")) {
+                         httpPost = new HttpPost(urlComment);
+                    }
+                            else {
+                        urlComment="http://"+urlComment;
+                         httpPost = new HttpPost(urlComment);
+                    }
+
 
                     MultipartEntity multipartEntity = new MultipartEntity();
                     multipartEntity.addPart("action", new StringBody("postcomment", Charset.forName("UTF-8")));
-                    multipartEntity.addPart("app_id", new StringBody(com.appbuilder.sdk.android.Statics.appId/*"2057863"*/, Charset.forName("UTF-8")));
+                    multipartEntity.addPart("app_id", new StringBody( com.appbuilder.sdk.android.Statics.appId/*"2057863"*/, Charset.forName("UTF-8")));
                     multipartEntity.addPart("token", new StringBody(com.appbuilder.sdk.android.Statics.appToken/*"ibdbeVVm37J4g"*/, Charset.forName("UTF-8")));
                     multipartEntity.addPart("module_id", new StringBody(Statics.MODULE_ID, Charset.forName("UTF-8")));
                     multipartEntity.addPart("parent_id", new StringBody(item.getId() + "", Charset.forName("UTF-8")));
@@ -1129,11 +1140,11 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
 
                     handler.sendEmptyMessage(CLEAN_COMMENT_EDIT_TEXT);
 
-                    String commentsUrl = Statics.BASE_URL + "/getcomments/"
+                    String commentsUrl = urlComment/*Statics.BASE_URL*/ + "/getcomments/"
                             + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
                         //      + "2057863/" + Statics.MODULE_ID + "/"
                             + item.getId() + "/0/"
-                        //    + "2057863/"
+                      //      + "2057863/"
                             + com.appbuilder.sdk.android.Statics.appId + "/"
                         //    + "ibdbeVVm37J4g";
                             + com.appbuilder.sdk.android.Statics.appToken;

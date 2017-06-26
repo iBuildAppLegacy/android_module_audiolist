@@ -294,7 +294,7 @@ public class CommentsToCommentActivity extends AppBuilderModuleMain implements
                 }
 
                 if (isOnline) {
-                    String commentsUrl = Statics.BASE_URL + "/getcomments/"
+                    String commentsUrl = "http://"+Statics.BASE_URL + "/getcomments/"
                             + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
                             + videoItem.getId() + "/" + item.getId() + "/"
                             + com.appbuilder.sdk.android.Statics.appId + "/"

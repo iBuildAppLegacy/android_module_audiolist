@@ -250,7 +250,7 @@ public class CommentsActivity extends AppBuilderModule implements
                 }
 
                 if (isOnline) {
-                    String commentsUrl = Statics.BASE_URL + "/getcomments/"
+                    String commentsUrl ="http://" + Statics.BASE_URL + "/getcomments/"
                             + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
                             + item.getId() + "/0/"
                             + com.appbuilder.sdk.android.Statics.appId + "/"

@@ -201,7 +201,7 @@ public class JSONParser {
      * @return comments counts HashMap that contains <video id, comments count>
      */
     public static HashMap<String, String> getVideoCommentsCount() {
-        return getVideoCommentsCount(Statics.BASE_URL + "/getcommentscount/"
+        return getVideoCommentsCount("http://"+Statics.BASE_URL + "/getcommentscount/"
                 + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
                 + com.appbuilder.sdk.android.Statics.appId + "/"
                 + com.appbuilder.sdk.android.Statics.appToken + "/");
