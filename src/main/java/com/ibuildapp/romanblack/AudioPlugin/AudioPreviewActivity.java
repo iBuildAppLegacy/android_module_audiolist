@@ -1097,13 +1097,12 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                     StringBuilder sb = new StringBuilder();
                     sb.append(Statics.BASE_URL);
                     sb.append("/");
-
                     HttpPost httpPost = new HttpPost(sb.toString());
 
                     MultipartEntity multipartEntity = new MultipartEntity();
                     multipartEntity.addPart("action", new StringBody("postcomment", Charset.forName("UTF-8")));
-                    multipartEntity.addPart("app_id", new StringBody(com.appbuilder.sdk.android.Statics.appId, Charset.forName("UTF-8")));
-                    multipartEntity.addPart("token", new StringBody(com.appbuilder.sdk.android.Statics.appToken, Charset.forName("UTF-8")));
+                    multipartEntity.addPart("app_id", new StringBody(com.appbuilder.sdk.android.Statics.appId/*"2057863"*/, Charset.forName("UTF-8")));
+                    multipartEntity.addPart("token", new StringBody(com.appbuilder.sdk.android.Statics.appToken/*"ibdbeVVm37J4g"*/, Charset.forName("UTF-8")));
                     multipartEntity.addPart("module_id", new StringBody(Statics.MODULE_ID, Charset.forName("UTF-8")));
                     multipartEntity.addPart("parent_id", new StringBody(item.getId() + "", Charset.forName("UTF-8")));
 
@@ -1132,13 +1131,16 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
 
                     String commentsUrl = Statics.BASE_URL + "/getcomments/"
                             + com.appbuilder.sdk.android.Statics.appId + "/" + Statics.MODULE_ID + "/"
+                        //      + "2057863/" + Statics.MODULE_ID + "/"
                             + item.getId() + "/0/"
+                        //    + "2057863/"
                             + com.appbuilder.sdk.android.Statics.appId + "/"
+                        //    + "ibdbeVVm37J4g";
                             + com.appbuilder.sdk.android.Statics.appToken;
 
                     ArrayList<CommentItem> tmpComments = JSONParser.parseCommentsUrl(commentsUrl);
 
-                    if (tmpComments != null && tmpComments.size() > 0) {
+                //    if (tmpComments != null   && tmpComments.size() > 0) {
                         Collections.reverse(tmpComments);
 
                         comments = tmpComments;
@@ -1146,7 +1148,7 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                         Statics.onCommentsUpdate(item, comments.size(), 0, comments);
 
                         handler.sendEmptyMessage(REFRESH_LIST);
-                    }
+              //      }
 
                     Log.d("", "");
 

@@ -48,7 +48,9 @@ public class Statics {
      * Base module URL.
      * This URL depending on service domen.
      */
-    public static final String BASE_URL = "http://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN + "/mdscr/audio";
+  //  public static final String BASE_URL = "https://" + com.appbuilder.sdk.android.Statics.BASE_DOMEN + "/mdscr/audio";
+    public static final String BASE_URL = com.appbuilder.sdk.android.Statics.BASE_DOMEN + "/mdscr/audio";
+ //   public static final String BASE_URLTEST =  com.appbuilder.sdk.android.Statics.BASE_DOMEN + "/mdscr/audio";
     public static String APP_ID = "0";
     public static String MODULE_ID = "0";
     public static String APP_NAME = "";
