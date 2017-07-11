@@ -1125,7 +1125,7 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                         multipartEntity.addPart("account_type", new StringBody("ibuildapp", Charset.forName("UTF-8")));
                     }
                     multipartEntity.addPart("account_id", new StringBody(Authorization.getAuthorizedUser().getAccountId(), Charset.forName("UTF-8")));
-                    multipartEntity.addPart("username", new StringBody(Authorization.getAuthorizedUser().getUserName(), Charset.forName("UTF-8")));
+                    multipartEntity.addPart("username", new StringBody(Authorization.getAuthorizedUser().getFullName(), Charset.forName("UTF-8")));
                     multipartEntity.addPart("avatar", new StringBody(Authorization.getAuthorizedUser().getAvatarUrl(), Charset.forName("UTF-8")));
 
                     multipartEntity.addPart("text", new StringBody(commentEditText.getText().toString(), Charset.forName("UTF-8")));

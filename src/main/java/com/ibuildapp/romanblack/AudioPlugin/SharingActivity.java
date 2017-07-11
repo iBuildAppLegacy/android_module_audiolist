@@ -124,7 +124,7 @@ public class SharingActivity extends AppBuilderModuleMain {
 
                     handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
 
-                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getUserName() + " "
+                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_FACEBOOK).getFullName() + " "
                             + getString(R.string.romanblack_audio_sharing_first_part) + " "
                             + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
                             + Statics.APP_NAME
@@ -154,7 +154,7 @@ public class SharingActivity extends AppBuilderModuleMain {
                 } else if (sharingType.equalsIgnoreCase("twitter")) {
                     handler.sendEmptyMessage(SHOW_PROGRESS_DIALOG);
 
-                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getUserName() + " "
+                    text = Authorization.getAuthorizedUser(Authorization.AUTHORIZATION_TYPE_TWITTER).getFullName() + " "
                             + getString(R.string.romanblack_audio_sharing_first_part) + " "
                             + link + " " + getString(R.string.romanblack_audio_sharing_second_part) + " "
                             + Statics.APP_NAME
