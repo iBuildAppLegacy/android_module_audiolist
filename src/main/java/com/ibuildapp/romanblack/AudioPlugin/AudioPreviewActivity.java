@@ -1100,15 +1100,15 @@ public class AudioPreviewActivity extends AppBuilderModuleMain implements OnClic
                     sb.append(Statics.BASE_URL);
                     sb.append("/");
                     urlComment = sb.toString();
-                    HttpPost httpPost;
+               /*     HttpPost httpPost;
                     if (urlComment.contains("http")) {
                          httpPost = new HttpPost(urlComment);
                     }
                             else {
                         urlComment="http://"+urlComment;
                          httpPost = new HttpPost(urlComment);
-                    }
-
+                    }*/
+                    HttpPost httpPost = new HttpPost(Statics.BASE_URL + "/");
 
                     MultipartEntity multipartEntity = new MultipartEntity();
                     multipartEntity.addPart("action", new StringBody("postcomment", Charset.forName("UTF-8")));
