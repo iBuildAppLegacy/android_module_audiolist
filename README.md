@@ -1,6 +1,6 @@
 
 Use our code to save yourself time on cross-platform, cross-device and cross OS version development and testing
-The AudioList widget is designed to listen to your favorite music.
+- The AudioList widget is designed to listen to your favorite music.
 You can comment on your impressions of what you heard and put like.
 Authorization via facebook, twitter or create a new account is implemented.
 
@@ -8,18 +8,18 @@ Authorization via facebook, twitter or create a new account is implemented.
 
 # Tags: 
 
--App_name is the name of the mobile application.
--Allowsharing - Ability to repost on your page in social networks
--Allowcomments - Ability to leave comments about the melody heard.
--Cover_image - cover
--Colorskin - this is the basic color scheme. Contains 5 elements (color [1-5]). Each widget can set colors for elements of the interface using color scheme in any order, but generally color1-background color, color3-titles color, color4-font color, color5-date or price color.
--Track - this is a root tag about track
--Title - name of track
--Description - description of track
--Cover_image - cover
--Permalink_url - link to track
--Stream_url - stream reference
--Id - id track
+- App_name - the name of the mobile application. 
+- Allowsharing - Ability to repost on your page in social networks
+- Allowcomments - Ability to leave comments about the melody heard.
+- Cover_image - cover
+- Colorskin - this is the basic color scheme. Contains 5 elements (color [1-5]). Each widget can set colors for elements of the interface using color scheme in any order, but generally color1-background color, color3-titles color, color4-font color, color5-date or price color.
+- Track - this is a root tag about track
+- Title - name of track
+- Description - description of track
+- Cover_image - cover
+- Permalink_url - link to track
+- Stream_url - stream reference
+- Id - id track
 
 # Example:
 
