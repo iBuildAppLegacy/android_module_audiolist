@@ -116,7 +116,7 @@ public class AudioPlugin extends AppBuilderModuleMain implements
     private String coverFileDir = "";
     private PositionResolver resolver = null;
     private Widget widget = null;
-    private MediaExpandableAdapter adapter = null;
+    public  MediaExpandableAdapter adapter = null;
     private ExpandableListView listView = null;
     Bundle store;
     Intent currentIntent;
@@ -1085,8 +1085,8 @@ public class AudioPlugin extends AppBuilderModuleMain implements
     }
 
     private void playerInitializing() {
+        showMediaList();
         adapter.notifyDataSetChanged();
-
         int pos = Statics.serviceManageInterface.getPosition();
 
         Log.d("", "");

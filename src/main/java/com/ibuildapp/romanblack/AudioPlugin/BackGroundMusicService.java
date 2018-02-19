@@ -274,12 +274,19 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
                 mediaPlayer.setOnCompletionListener(this);
                 mediaPlayer.setOnErrorListener(this);
                 mediaPlayer.setOnInfoListener(this);
-                mediaPlayer.setOnPreparedListener(this);
+            //    mediaPlayer.setOnPreparedListener(this);
 
                 mediaPlayer.reset();
                 mediaPlayer.setDataSource(streamUrl);
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer.prepareAsync();
+                mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                       mp.start();
+                    }
+                });
+
             } else if (proxy!= null && proxy.getContentLength() > 0) {
                 contentType = ContentTypes.FILE;
 
@@ -292,12 +299,18 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
                 mediaPlayer.setOnCompletionListener(this);
                 mediaPlayer.setOnErrorListener(this);
                 mediaPlayer.setOnInfoListener(this);
-                mediaPlayer.setOnPreparedListener(this);
+           //     mediaPlayer.setOnPreparedListener(this);
 
                 mediaPlayer.reset();
                 mediaPlayer.setDataSource(items.get(position).getUrl());
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer.prepareAsync();
+                mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.start();
+                    }
+                });
             } else if (proxy!= null && (proxy.getContentType().contains("mpeg") || Build.VERSION.SDK_INT >= 16)) {
                 contentType = ContentTypes.STREAM_MP3;//streamType = "file";
 
@@ -309,12 +322,18 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
                 mediaPlayer.setOnCompletionListener(this);
                 mediaPlayer.setOnErrorListener(this);
                 mediaPlayer.setOnInfoListener(this);
-                mediaPlayer.setOnPreparedListener(this);
+          //      mediaPlayer.setOnPreparedListener(this);
 
                 mediaPlayer.reset();
                 mediaPlayer.setDataSource(items.get(position).getUrl());
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer.prepareAsync();
+                mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.start();
+                    }
+                });
             } else {
                 contentType = ContentTypes.STREAM;
 
@@ -373,13 +392,14 @@ public class BackGroundMusicService extends Service implements OnPreparedListene
             isAwait = false;
             mediaPlayer1.setOnPreparedListener(new OnPreparedListener() {
                 public void onPrepared(MediaPlayer arg0) {
-                    proxy.stop();
+                    mediaPlayer.start();
+            /*        proxy.stop();
                     if (mediaPlayer != null) {
                         mediaPlayer.stop();
                         mediaPlayer.release();
                     }
                     mediaPlayer1.release();
-                    mediaPlayer1.start();
+                    mediaPlayer1.start();*/
                 }
             });
 
